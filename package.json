@@ -2,7 +2,7 @@
   "name": "black",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://sashakuh.github.io/crypto_calculator/",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
