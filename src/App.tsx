@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+import Input from './components/Input/Input';
+import Result from './components/Result/Result';
+
+import { AppContainer, Container, Title }  from './App.styled'
+
+const App: React.FC = () => {
+  const [amount, setAmount] = useState<string>('0');
+  const [action, setAction] = useState<'Buy' | 'Sell'>('Buy');
+
+  const handleAmountChange = (value: string) => {
+    setAmount(value);
+  };
+
+  const handleActionChange = (value: 'Buy' | 'Sell') => {
+    setAction(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Title>CRYPTO CALCULATOR</Title>
+      <Container>
+        
+      <Input
+        amount={amount}
+        onAmountChange={handleAmountChange}
+        action={action}
+        onActionChange={handleActionChange}
+      />
+        <Result amount={parseFloat(amount)} action={action} />
+        </Container>
+    </AppContainer>
   );
-}
+};
 
 export default App;
